@@ -13844,7 +13844,7 @@ mZmZmbWMb06ZmZmZmZmZmVnL+OaUmZmZmZmZmZm1zP8BAGlgL7yGI3cAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> I've picked the 1st graph with max_depth = 1 because the curves seem to be converging towards approximately 0.41. The score of the training curve seems to be asymptotically approaching the value of convergence (~0.41), so adding more training points will have increasingly diminishing returns. The same is true for the testing curve which looks more or less like the mirror image of the training curve (approaching ~0.41 from below). Adding more training points would not benefit this model any further because they'll be less and less significant to it.</p>
+<p><strong>Answer: </strong> I've picked the 1st graph with max_depth = 1 because the curves seem to be converging towards approximately 0.41. The score of the training curve is decreasing and seems to be asymptotically approaching the value of convergence (~0.41), so adding more training points will have increasingly diminishing returns. The same is true for the testing curve which is wincreasing and looks more or less like the mirror image of the training curve (approaching ~0.41 from below). Adding more training points would not benefit this model any further because they'll be less and less significant to it.</p>
 
 </div>
 </div>
@@ -14595,7 +14595,8 @@ rIO5WDMzMzPrYP8HTW1XNQuwo64AAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> As a rule bias is high when the complexity of the model is low and the variance is high when the model complexity is high. So, for max depth of 1, the model suffers from high bias and when max depth is 10, the model suffers from high variance. The visual cues which point to this conclusion is that the training and validation scores grow in a similar way when max depth is 1 but are off by some value quite consistently (bias); and they are quite far apart when max depth is 10. They gradually diverge as complexity goes up.</p>
+<p><strong>Answer: </strong> As a rule bias is high when the complexity of the model is low and the variance is high when the model complexity is high. So, for this model, when max depth of 1 the model suffers from high bias and when max depth is 10, the model suffers from high variance.</p>
+<p>The visual cues which point to this conclusion are that the training and validation scores are both low (error is high in both cases) when the max_depth is low (or complexity is low). This is usually a sign of bias because the model isn't fitting the data very well. In the case of high variance, the training score is usually high but the validation score is low due to overfitting the training data which can be seen on the graph when max_depth is high.</p>
 
 </div>
 </div>
