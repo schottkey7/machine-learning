@@ -38,3 +38,12 @@ clf.score(X_test, y_test[y_test.columns[1]])
 most_important = clf.feature_importances_
 fi = zip(most_important, X_train.columns)
 print sorted(fi, key=lambda tup: tup[0], reverse=True)[:20]
+
+# ----------------------------------------------------------------------------- #
+# Feature importances
+from sklearn.ensemble import ExtraTreesClassifier
+
+model = ExtraTreesClassifier()
+model.fit(X_train, y_train[y_train.columns[1]])
+print(model.feature_importances_)
+model.score(X_test, y_test[y_test.columns[1]])
