@@ -21,7 +21,7 @@ clf.score(X_test, y_test[y_test.columns[1]])
 # ----------------------------------------------------------------------------- #
 # Best estimator
 '''
-LogisticRegression(C=0.99000100000000002, class_weight=None, dual=False,
+clf = LogisticRegression(C=0.99000100000000002, class_weight=None, dual=False,
           fit_intercept=True, intercept_scaling=1, max_iter=100,
           multi_class='ovr', n_jobs=1, penalty='l2', random_state=11,
           solver='liblinear', tol=0.0001, verbose=0, warm_start=False)
