@@ -11811,7 +11811,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import the visualization code</span>
@@ -11859,7 +11859,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer:</strong> The smartcab is not moving at all during the simulation. It is idling at traffic lights and receiving rewards - positive for idling at a red light (1.64 and 2.99) and negative for idling at a green light (-4.75).</p>
+<p><strong>Answer:</strong> The smartcab is not moving at all during the simulation. It is idling at traffic lights and receiving rewards. It is receiving positive rewards for idling at a red light (1.64 and 2.99) or idling at a green light when there is oncoming traffic that would cause an accident and it is receiving negative rewards for idling at a green light (-4.75) the rest of the time.</p>
 
 </div>
 </div>
@@ -11940,7 +11940,7 @@ Run the agent.py file after setting the flags from projects/smartcab folder inst
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Load the &#39;sim_no-learning&#39; log file from the initial simulation results</span>
@@ -13603,7 +13603,7 @@ RU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer:</strong> I think the most relevant features for learning both safety and efficiency are <code>waypoint</code>, <code>light</code> and <code>oncoming</code>. Waypoint is more relevant to getting the smartcab to its destination than deadline because it directs the cab's future moves in an efficient way. Deadline is useful for keeping track of how the cab is doing but does not help with safety or efficiency. All of the inputs are relevant for learning safety, however the most relevant inputs are the colour of the traffic light and <code>oncoming</code>, because they are most strongly correlated with causing/avoiding accidents. I've excluded the inputs <code>left</code> and <code>right</code> as they are not as important as the other ones. For example, if there is a car on the left at an intersection and it is turning right, it is irrelevant to the driving agent. If it is going forward or turning left, it is relevant but the traffic light should control the traffic flow, so that collisions do not occur in these cases. If there is a car on the right, it is more relevant to the driving agent as it is crossing its path in 2 out of 3 instances and merging with its lane in the last one but the traffic light will help avoid collisions in those cases.</p>
+<p><strong>Answer:</strong> I think the most relevant features for learning both safety and efficiency are <code>waypoint</code>, <code>light</code> and <code>oncoming</code>. Waypoint is more relevant to getting the smartcab to its destination than deadline because it directs the cab's future moves in an efficient way. Deadline is useful for keeping track of how the cab is doing but does not help with safety or efficiency and it might reward the driving agent to break traffic rules if it is running out of time. All of the inputs are relevant for learning safety, however the most relevant inputs are the colour of the traffic light and <code>oncoming</code>, because they are most strongly correlated with causing/avoiding accidents. I've excluded the inputs <code>left</code> and <code>right</code> as they are not as important as the other ones. For example, if there is a car on the left at an intersection and it is turning right, it is irrelevant to the driving agent. If it is going forward or turning left, it is relevant but the traffic light should control the traffic flow, so that collisions do not occur in these cases. The exception to this is if this is happening in a city where right turn on red is allowed, so including the input <code>left</code> would help the driving agent learn to avoid accidents when the traffic from the left is going forward. I think it is a worthwhile feature to include but it will increase the state space from 24 to 96 and the driving agent will benefit from it only in select few instances, so in this case I'd prioritise keeping the state space small.</p>
 
 </div>
 </div>
@@ -15694,7 +15694,7 @@ $$ \epsilon = a^t, \textrm{for } 0 < a < 1 \hspace{50px}\epsilon = \frac{1}{t^2}
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[97]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Load the &#39;sim_improved-learning&#39; file from the improved Q-Learning simulation</span>
